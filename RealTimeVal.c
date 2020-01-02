@@ -21,10 +21,8 @@ int main(int argc, char *argv[])
 	i2c_smbus_write_byte_data(file, PWR_MGMT_1, 0x00);
 	while(1)
 	{
-		highbyte = i2c_smbus_read_byte_data(file, ACCEL_XOUT_H);
-		lowbyte = i2c_smbus_read_byte_data(file, ACCEL_XOUT_L);
-		int16_t combnum = (highbyte >> 8) | lowbyte;
-		printf("\r X-axis acceleration  ==> %d", combnum);
+		int16_t temp = get_temp(file);
+		printf("\r Temperature  ==> %d", temp);
 	}
 
 	return 0;

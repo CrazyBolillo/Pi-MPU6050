@@ -8,6 +8,8 @@
 
 #include <inttypes.h>
 
+#define ACCEL_CONFIG 0x1C
+
 //H = HIGH
 //L = LOW
 #define ACCEL_XOUT_H 0x3B
@@ -31,5 +33,9 @@
 #define PWR_MGMT_2 0x6C
 
 int8_t openbus(int8_t addr);
+
+int16_t comb_bytes(unsigned char highbyte, unsigned char lowbyte);
+int16_t rdwrd(int8_t fladdr, int8_t reg);
+int16_t get_temp(int8_t fladdr);
 
 #endif
